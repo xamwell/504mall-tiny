@@ -23,14 +23,17 @@ import java.util.List;
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
+    //配置了swagger的docket的bean实例
     @Bean
     public Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2)
+//                .enable(false)//控制启动swagger
+//                .groupName("name")//组名
                 .apiInfo(apiInfo())
                 .select()
-                //为当前包下controller生成API文档
+                //为当前包下controller生成API文档 配置要扫描接口的方式
                 .apis(RequestHandlerSelectors.basePackage("com.macro.mall.tiny.controller"))
-                .paths(PathSelectors.any())
+                .paths(PathSelectors.any()) //过滤什么路径，
                 .build()
                 //添加登录认证
                 .securitySchemes(securitySchemes())

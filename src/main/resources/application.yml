@@ -35,6 +35,12 @@ spring:
     username: mall # rabbitmq的用户名
     password: mall # rabbitmq的密码
     publisher-confirms: true #如果对异步消息需要回调必须设置为true
+  #mail
+  mail:
+    username: xxxx
+    password: xxxx
+    host: smtp.qq.com
+    #开启加密属性
 
 mybatis:
   mapper-locations:
@@ -69,3 +75,4 @@ aliyun:
     callback: http://localhost:8080/aliyun/oss/callback # 文件上传成功后的回调地址
     dir:
       prefix: mall/images/ # 上传文件夹路径前缀
+
